@@ -10,4 +10,4 @@ if response.status_code == 200:
     print('Weather is ', data['weather'][0]['description'])
     print('Current Temperature is ', data['main']['temp'])
     print('Current Temperature Feels like  ', data['main']['feels_like'])
-    print('Humidity is ', data['main']['humidity'])www
+    print('Humidity is ', data['main']['humidity'])
