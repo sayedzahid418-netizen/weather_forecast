@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:padding="16dp">
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="@string/enter_country"
+android:textSize="30sp"
+android:textColor="#FF0000"/>
+<AutoCompleteTextView
+android:id="@+id/actv"
+android:layout_width="match_parent"
+android:layout_height="48dp"
+android:hint="@string/type_country"/>
+</LinearLayout>
+
+package com.example.BIHE;
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import androidx.appcompat.app.AppCompatActivity;
+public class MainActivity extends AppCompatActivity {
+AutoCompleteTextView actv;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+actv = findViewById(R.id.actv);
+String[] values = getResources().getStringArray(R.array.country);
+ArrayAdapter<String> adapter =
+new ArrayAdapter<>(
+this,
+android.R.layout.simple_dropdown_item_1line,
+values);
+actv.setAdapter(adapter);
+actv.setThreshold(1);
+}
+}
+
+<resources>
+<string name="app_name">ACTCApp</string>
+<string name="enter_country">Enter Country</string>
+<string name="type_country">Type country name</string>
+<string-array name="country">
+<item>India</item>
+<item>Indonesia</item>
+<item>Ireland</item>
+<item>Sri Lanka</item>
+<item>South Africa</item>
+<item>Pakistan</item>
+<item>Bangladesh</item>
+<item>Brazil</item>
+</string-array>
+</resources>
