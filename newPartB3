@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebView xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/webView"
+android:layout_width="match_parent"
+android:layout_height="match_parent"/>
+
+package com.example.BIHE;
+import android.os.Bundle;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import androidx.appcompat.app.AppCompatActivity;
+public class MainActivity extends AppCompatActivity {
+WebView webView;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+webView = findViewById(R.id.webView);
+webView.setWebViewClient(new WebViewClient());
+String lat = "14.4644"; // example: Davangere latitude
+String lon = "75.9218"; // example: Davangere longitude
+
+String url =
+"https://www.google.com/maps/@"
++ lat + "," + lon + ",15z";
+webView.loadUrl(url);
+}
+}
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<uses-permission android:name="android.permission.INTERNET"/>
+<application
+android:allowBackup="true"
+android:label="Map Image App"
+android:theme="@style/Theme.AppCompat.Light">
+<activity android:name=".MainActivity"
+android:exported="true">
+<intent-filter>
+<action android:name="android.intent.action.MAIN"/>
+<category android:name="android.intent.category.LAUNCHER"/>
+</intent-filter>
+</activity>
+</application>
+</manifest>
